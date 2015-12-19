@@ -89,7 +89,7 @@ function aqi(concentration, breakpoints) {
     });
 
     if (-1 === index) {
-        return undefined;
+        return NaN;
     }
 
     var i_high = aqi_breakpoints[index][1],
