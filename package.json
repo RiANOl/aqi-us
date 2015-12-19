@@ -1,0 +1,23 @@
+{
+  "name": "aqi-us",
+  "version": "0.1.0",
+  "description": "Air Quality Index (AQI) calculation module according to USEPA AQI breakpoints.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RiANOl/aqi-us.git"
+  },
+  "keywords": [
+    "AQI",
+    "EPA"
+  ],
+  "author": "Rianol Jou <rianol.jou@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RiANOl/aqi-us/issues"
+  },
+  "homepage": "https://github.com/RiANOl/aqi-us#readme"
+}
