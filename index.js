@@ -100,6 +100,24 @@ function aqi(concentration, breakpoints) {
     return Math.round((i_high - i_low) / (c_high - c_low) * (concentration - c_low) + i_low);
 }
 
+// Airnow.gov descriptions by range
+exports.aqi_label = function(aqi) {
+    var label;
+    if (aqi < 51)
+        label = 'Good'
+    else if (aqi < 101)
+        label = 'Moderate'
+    else if (aqi < 151)
+        label = 'Unhealthy for Sensitive Groups'
+    else if (aqi < 201)
+        label = 'Unhealthy'
+    else if (aqi < 301)
+        label = 'Very Unhealthy'
+    else
+        label = 'Hazardous'
+    return label;
+}
+
 exports.co = function (concentration) {
     return aqi(concentration, co_breakpoints);
 };
