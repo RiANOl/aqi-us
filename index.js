@@ -68,10 +68,28 @@ var so2_breakpoints = [
     [605, 804],
     [805, 1004],
 ];
+var aqi_labels = [
+    'Good',
+    'Moderate',
+    'Unhealthy for Sensitive Groups',
+    'Unhealthy',
+    'Very Unhealthy',
+    'Hazardous',
+    'Hazardous'
+];
+var aqi_colors = [
+    '009966',
+    'ffde33',
+    'ff9933',
+    'cc0033',
+    '660099',
+    '7e0023',
+    '7e0023'
+];
 
 if (undefined === Array.prototype.findIndex) {
-    Array.prototype.findIndex = function(callback) {
-        for(var i = 0; i < this.length; i++) {
+    Array.prototype.findIndex = function (callback) {
+        for (var i = 0; i < this.length; i++) {
             if (callback.call(this, this[i], i, this)) {
                 return i;
             }
@@ -80,13 +98,17 @@ if (undefined === Array.prototype.findIndex) {
     };
 }
 
-function aqi(concentration, breakpoints) {
-    var index = breakpoints.findIndex(function(breakpoint) {
+function breakpointIndex(value, breakpoints) {
+    return breakpoints.findIndex(function (breakpoint) {
         if (null === breakpoint) {
             return false;
         }
-        return breakpoint[0] <= concentration && concentration <= breakpoint[1];
+        return breakpoint[0] <= value && value <= breakpoint[1];
     });
+}
+
+function aqi(concentration, breakpoints) {
+    var index = breakpointIndex(concentration, breakpoints);
 
     if (-1 === index) {
         return NaN;
@@ -126,4 +148,16 @@ exports.pm25 = function (concentration) {
 
 exports.so2 = function (concentration) {
     return aqi(concentration, so2_breakpoints);
+};
+
+// Airnow.gov descriptions by range
+exports.aqi_label = function (aqi) {
+    var idx = breakpointIndex(aqi, aqi_breakpoints);
+    return aqi_labels[idx];
+};
+
+// Aqi color mapping. Returns hex color code.
+exports.aqi_color = function (aqi) {
+    var idx = breakpointIndex(aqi, aqi_breakpoints);
+    return aqi_colors[idx];
 };
