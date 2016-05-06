@@ -2,6 +2,8 @@
 
 Air Quality Index (AQI) calculation module according to USEPA AQI breakpoints.
 
+[![Build Status](https://travis-ci.org/RiANOl/aqi-us.svg?branch=master)](https://travis-ci.org/RiANOl/aqi-us)
+
 ## Installation
 
 ```
