@@ -1,3 +1,5 @@
+'use strict';
+
 var aqi_breakpoints = [
     [0, 50],
     [51, 100],
@@ -98,7 +100,7 @@ if (undefined === Array.prototype.findIndex) {
     };
 }
 
-function breakpointIndex(value, breakpoints) {
+function breakpointIndex (value, breakpoints) {
     return breakpoints.findIndex(function (breakpoint) {
         if (null === breakpoint) {
             return false;
@@ -107,7 +109,7 @@ function breakpointIndex(value, breakpoints) {
     });
 }
 
-function aqi(concentration, breakpoints) {
+function aqi (concentration, breakpoints) {
     var index = breakpointIndex(concentration, breakpoints);
 
     if (-1 === index) {
