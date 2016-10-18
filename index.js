@@ -124,31 +124,49 @@ function aqi (concentration, breakpoints) {
     return Math.round((i_high - i_low) / (c_high - c_low) * (concentration - c_low) + i_low);
 }
 
-exports.co = function (concentration) {
+// Airnow.gov descriptions by range
+function aqi_label(aqi) {
+    var label;
+    if (aqi < 51)
+        label = 'Good'
+    else if (aqi < 101)
+        label = 'Moderate'
+    else if (aqi < 151)
+        label = 'Unhealthy for Sensitive Groups'
+    else if (aqi < 201)
+        label = 'Unhealthy'
+    else if (aqi < 301)
+        label = 'Very Unhealthy'
+    else
+        label = 'Hazardous'
+    return label;
+}
+
+function co(concentration) {
     return aqi(concentration, co_breakpoints);
 };
 
-exports.o3_1hr = function (concentration) {
+function o3_1hr(concentration) {
     return aqi(concentration, o3_1hr_breakpoints);
 };
 
-exports.o3_8hr = function (concentration) {
+function o3_8hr(concentration) {
     return aqi(concentration, o3_8hr_breakpoints);
 };
 
-exports.no2 = function (concentration) {
+function no2(concentration) {
     return aqi(concentration, no2_breakpoints);
 };
 
-exports.pm10 = function (concentration) {
+function pm10(concentration) {
     return aqi(concentration, pm10_breakpoints);
 };
 
-exports.pm25 = function (concentration) {
+function pm25(concentration) {
     return aqi(concentration, pm25_breakpoints);
 };
 
-exports.so2 = function (concentration) {
+function so2(concentration) {
     return aqi(concentration, so2_breakpoints);
 };
 
