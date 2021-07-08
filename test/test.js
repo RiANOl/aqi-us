@@ -39,10 +39,10 @@ describe('aqi-us', function () {
         it('should calculate correct O3 8hr AQI', function () {
             assert(Number.isNaN(aqi.o3_8hr(-0.1)));
             assert.strictEqual(0, aqi.o3_8hr(0));
-            assert.strictEqual(161, aqi.o3_8hr(100));
-            assert.strictEqual(272, aqi.o3_8hr(300));
-            assert.strictEqual(300, aqi.o3_8hr(374.1));
-            assert(Number.isNaN(aqi.o3_8hr(375)));
+            assert.strictEqual(46, aqi.o3_8hr(50));
+            assert.strictEqual(187, aqi.o3_8hr(100));
+            assert.strictEqual(300, aqi.o3_8hr(200.1));
+            assert(Number.isNaN(aqi.o3_8hr(301)));
         });
     });
 
@@ -63,8 +63,8 @@ describe('aqi-us', function () {
             assert.strictEqual(0, aqi.pm25(0));
             assert.strictEqual(174, aqi.pm25(100));
             assert.strictEqual(350, aqi.pm25(300));
-            assert.strictEqual(500, aqi.pm25(500.01));
-            assert(Number.isNaN(aqi.pm25(500.1)));
+            assert.strictEqual(500, aqi.pm25(500.41));
+            assert(Number.isNaN(aqi.pm25(500.5)));
         });
     });
 
