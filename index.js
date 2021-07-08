@@ -125,30 +125,37 @@ function aqi (concentration, breakpoints) {
 }
 
 exports.co = function (concentration) {
+    concentration = Math.floor(concentration * 10) / 10;
     return aqi(concentration, co_breakpoints);
 };
 
 exports.o3_1hr = function (concentration) {
+    concentration = Math.floor(concentration);
     return aqi(concentration, o3_1hr_breakpoints);
 };
 
 exports.o3_8hr = function (concentration) {
+    concentration = Math.floor(concentration);
     return aqi(concentration, o3_8hr_breakpoints);
 };
 
 exports.no2 = function (concentration) {
+    concentration = Math.floor(concentration);
     return aqi(concentration, no2_breakpoints);
 };
 
 exports.pm10 = function (concentration) {
+    concentration = Math.floor(concentration);
     return aqi(concentration, pm10_breakpoints);
 };
 
 exports.pm25 = function (concentration) {
+    concentration = Math.floor(concentration * 10) / 10;
     return aqi(concentration, pm25_breakpoints);
 };
 
 exports.so2 = function (concentration) {
+    concentration = Math.floor(concentration);
     return aqi(concentration, so2_breakpoints);
 };
 

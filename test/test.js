@@ -9,7 +9,7 @@ describe('aqi-us', function () {
             assert(Number.isNaN(aqi.co(-0.1)));
             assert.strictEqual(0, aqi.co(0));
             assert.strictEqual(140, aqi.co(10));
-            assert.strictEqual(500, aqi.co(50.4));
+            assert.strictEqual(500, aqi.co(50.41));
             assert(Number.isNaN(aqi.co(50.5)));
         });
     });
@@ -20,7 +20,8 @@ describe('aqi-us', function () {
             assert.strictEqual(0, aqi.no2(0));
             assert.strictEqual(100, aqi.no2(100));
             assert.strictEqual(139, aqi.no2(300));
-            assert(Number.isNaN(aqi.no2(2049.1)));
+            assert.strictEqual(500, aqi.no2(2049.1));
+            assert(Number.isNaN(aqi.no2(2050)));
         });
     });
 
@@ -29,7 +30,8 @@ describe('aqi-us', function () {
             assert(Number.isNaN(aqi.o3_1hr(124.9)));
             assert.strictEqual(195, aqi.o3_1hr(200));
             assert.strictEqual(396, aqi.o3_1hr(500));
-            assert(Number.isNaN(aqi.o3_1hr(604.1)));
+            assert.strictEqual(500, aqi.o3_1hr(604.1));
+            assert(Number.isNaN(aqi.o3_1hr(605)));
         });
     });
 
@@ -39,7 +41,8 @@ describe('aqi-us', function () {
             assert.strictEqual(0, aqi.o3_8hr(0));
             assert.strictEqual(161, aqi.o3_8hr(100));
             assert.strictEqual(272, aqi.o3_8hr(300));
-            assert(Number.isNaN(aqi.o3_8hr(374.1)));
+            assert.strictEqual(300, aqi.o3_8hr(374.1));
+            assert(Number.isNaN(aqi.o3_8hr(375)));
         });
     });
 
@@ -49,7 +52,8 @@ describe('aqi-us', function () {
             assert.strictEqual(0, aqi.pm10(0));
             assert.strictEqual(73, aqi.pm10(100));
             assert.strictEqual(173, aqi.pm10(300));
-            assert(Number.isNaN(aqi.pm10(604.1)));
+            assert.strictEqual(500, aqi.pm10(604.1));
+            assert(Number.isNaN(aqi.pm10(605)));
         });
     });
 
@@ -59,6 +63,7 @@ describe('aqi-us', function () {
             assert.strictEqual(0, aqi.pm25(0));
             assert.strictEqual(174, aqi.pm25(100));
             assert.strictEqual(350, aqi.pm25(300));
+            assert.strictEqual(500, aqi.pm25(500.01));
             assert(Number.isNaN(aqi.pm25(500.1)));
         });
     });
@@ -69,7 +74,8 @@ describe('aqi-us', function () {
             assert.strictEqual(0, aqi.so2(0));
             assert.strictEqual(112, aqi.so2(100));
             assert.strictEqual(198, aqi.so2(300));
-            assert(Number.isNaN(aqi.so2(1004.1)));
+            assert.strictEqual(500, aqi.so2(1004.1));
+            assert(Number.isNaN(aqi.so2(1005)));
         });
     });
 
