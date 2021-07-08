@@ -1,6 +1,6 @@
 {
   "name": "aqi-us",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Air Quality Index (AQI) calculation module according to USEPA AQI breakpoints.",
   "main": "index.js",
   "scripts": {
